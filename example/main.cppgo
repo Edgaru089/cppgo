@@ -1,0 +1,32 @@
+package main
+
+import (
+	"io"
+	"os"
+)
+
+#if GOVERSION < 11800
+#error This program requires Go 1.18+
+#endif
+
+#define TRYERROR(expr, ...) { var err error; __VA_ARGS__, err = expr; if err!=nil {return err}  }
+#define ASSERT_NOERROR(expr) {err := expr; if err!=nil { panic(err) } }
+
+func doSomethingWithError(filename string) (err error) {
+	var file io.ReadCloser
+	TRYERROR(os.Open(filename), file)
+	defer file.Close()
+
+	io.Copy(os.Stdout, file)
+
+	return nil
+}
+
+func main() {
+	if len(os.Args) >= 2 {
+		ASSERT_NOERROR(doSomethingWithError(os.Args[1]))
+	} else {
+		ASSERT_NOERROR(doSomethingWithError("cppgo_main.go"))
+	}
+}
+
