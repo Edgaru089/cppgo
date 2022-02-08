@@ -35,7 +35,7 @@ func init() {
 }
 
 // RunGenerate executes the build command.
-func RunGenerate(cmd *cobra.Command, args []string) error {
+func RunGenerate(_ *cobra.Command, args []string) error {
 
 	defines = make(map[string]string)
 	parseDefines(rawDefines, defines)
@@ -85,7 +85,7 @@ func RunGenerate(cmd *cobra.Command, args []string) error {
 	go func() {
 		filepath.WalkDir(workdir, func(path string, d fs.DirEntry, err error) error {
 			base := filepath.Base(path)
-			if len(base) > 0 && base[0] == '.' && base != "." {
+			if d.IsDir() && len(base) > 1 && base[0] == '.' {
 				return filepath.SkipDir // (Should be) hidden
 			}
 
