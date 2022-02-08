@@ -7,17 +7,17 @@ import (
 )
 
 var (
-	// The doc command.
-	cmdDoc = &cobra.Command{
-		Use:                   "doc",
+	// The info command.
+	cmdInfo = &cobra.Command{
+		Use:                   "info",
 		Short:                 "Tell me everything about this cursed and condemned program",
 		DisableFlagsInUseLine: true,
-		Run:                   RunDoc,
+		Run:                   RunInfo,
 	}
 )
 
-// RunDoc executes the doc command.
-func RunDoc(cmd *cobra.Command, args []string) {
+// RunInfo executes the info command.
+func RunInfo(cmd *cobra.Command, args []string) {
 	fmt.Println(`This is just bad. Don't use this unless you've used macros in C/C++ for 3+ years and
 you're absolutely crazy (like me). While easy to abuse, the C preprocessor surely
 helps solving simple problems like inline condiction-compiling and repeated code

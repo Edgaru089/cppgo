@@ -17,7 +17,7 @@ with the extension "cppgo", among other things. Run "cppgo doc" for more info.`,
 		cmdGenerate,
 		cmdBuild,
 		cmdRun,
-		cmdDoc,
+		cmdInfo,
 	}
 )
 
