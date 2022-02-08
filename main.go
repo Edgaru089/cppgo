@@ -1,7 +1,14 @@
 package main
 
-import "github.com/Edgaru089/cppgo/internal/cmds"
+import (
+	"os"
+
+	"github.com/Edgaru089/cppgo/internal/cmds"
+)
 
 func main() {
-	cmds.Execute()
+	err := cmds.Execute()
+	if err != nil {
+		os.Exit(1)
+	}
 }
