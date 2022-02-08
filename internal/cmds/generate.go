@@ -18,7 +18,7 @@ var (
 		Use:   "generate [options] [path]",
 		Short: "Generate a module/package with cppgo source files",
 		Long: `generate updates all the changed cppgo source files in the go module path
-		given. See "cppgo doc" for more info.`,
+given. See "cppgo doc" for more info.`,
 		DisableFlagsInUseLine: true,
 		PreRun:                func(cmd *cobra.Command, args []string) {},
 		RunE:                  RunGenerate,
