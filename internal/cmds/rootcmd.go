@@ -16,6 +16,7 @@ with the extension "cppgo", among other things. Run "cppgo doc" for more info.`,
 	commands = []*cobra.Command{
 		cmdGenerate,
 		cmdBuild,
+		cmdRun,
 		cmdDoc,
 	}
 )
